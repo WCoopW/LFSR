@@ -1,0 +1,8 @@
+E:\Projects\StreamCipher\StreamCipher\bin\Debug\StreamCipher.exe.config
+E:\Projects\StreamCipher\StreamCipher\bin\Debug\StreamCipher.exe
+E:\Projects\StreamCipher\StreamCipher\bin\Debug\StreamCipher.pdb
+E:\Projects\StreamCipher\StreamCipher\obj\Debug\StreamCipher.csproj.AssemblyReference.cache
+E:\Projects\StreamCipher\StreamCipher\obj\Debug\StreamCipher.csproj.SuggestedBindingRedirects.cache
+E:\Projects\StreamCipher\StreamCipher\obj\Debug\StreamCipher.csproj.CoreCompileInputs.cache
+E:\Projects\StreamCipher\StreamCipher\obj\Debug\StreamCipher.exe
+E:\Projects\StreamCipher\StreamCipher\obj\Debug\StreamCipher.pdb
