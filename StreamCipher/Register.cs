@@ -5,15 +5,20 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace StreamCipher
 {
     
-    internal class Register
+    public class Register
     {
+        public int[] mass = new int[100];
         public byte[] Reg3 = new byte[3];
         public byte[] Reg7 = new byte[7];
         public byte[] Reg11 = new byte[11];
+        public byte[] bytes = new byte[100];
+        Random rnd = new Random();
 
         public byte[] Ror(byte[] reg, int step1, int step2)
         {
@@ -36,11 +41,12 @@ namespace StreamCipher
         }
         public void Coding(byte[] reg3, byte[] reg7, byte[] reg11)
         {
+            int j = 0;
             Reg3 = reg3;
             Reg7 = reg7;
             Reg11 = reg11;
             string cipher = "";
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 200; i++)
               
             {
                 var k = Func(Reg3, Reg7, Reg11);
@@ -56,7 +62,15 @@ namespace StreamCipher
                 {
                     Reg11 = Ror(Reg11, 10, 8);
                 }
-                cipher += k;
+                if (i < 99)
+                {
+                    cipher += k;
+                }
+                if (i > 99)
+                {
+                    bytes[j] = Convert.ToByte(k);
+                    j++;
+                }
             }
             Console.WriteLine(cipher);
             var CharCip = cipher.ToCharArray();
@@ -64,15 +78,41 @@ namespace StreamCipher
             for (int i = 0; i < CharCip.Length; i++)
             {
                 ByteCip[i] = (byte)(Char.GetNumericValue(CharCip[i]));
-                
             }
             Console.WriteLine("Complexity: " + BerlekampMassey(ByteCip));
-            
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                Console.WriteLine(bytes[i]);
+            }
             Asses(ByteCip);
+            NewComplexity(ByteCip);
+         
+
+        }
+        public void NewComplexity(byte[] Cip)
+        {
+            
+            
+            var CipList = new List<byte>();
+            for (int i = 0; i < Cip.Length; i++)
+            {
+                CipList.Add(Cip[i]);
+            }
+            for ( int i = 0; i < 100; i++)
+            {
+
+                CipList.Add((bytes[i]));
+                mass[i] = BerlekampMassey(CipList.ToArray());
+                Console.WriteLine("New Complexity: " + BerlekampMassey(CipList.ToArray()));
+  
+            }
+           
+            Application.EnableVisualStyles();
+            Application.Run(new Form1(mass));
 
 
         }
-        
+
         public static void Asses(byte[] Cip)
         {
             int zero = 0;

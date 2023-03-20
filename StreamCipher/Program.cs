@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace StreamCipher
 {
@@ -11,7 +12,8 @@ namespace StreamCipher
     {
         static void Main(string[] args)
         {
-
+           
+           
             var reg3 = new byte[3] { 1, 1, 1 };
             var reg7 = new byte[7] { 1, 0, 1, 1, 1, 0, 0 };
             var NewReg = new byte[7];
@@ -31,6 +33,15 @@ namespace StreamCipher
             var p = new Register();
 
             p.Coding(reg3, reg7, reg11);
+
+            //if (args.Length == 0)
+            //{
+            //    // run as windows app
+            //    Application.EnableVisualStyles();
+            //    Application.Run(new Form1());
+            //}
+
+
 
 
             Console.ReadLine();
